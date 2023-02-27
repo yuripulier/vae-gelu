@@ -5,7 +5,7 @@
 <div align="justify">
 &nbsp;&nbsp; Even over the years, the Rectified Linear Unit (ReLU) activation function remains a competitive approach to creating Deep Learning models because it is faster and demonstrates better convergence compared to sigmoid. For generate image problems such as Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs), a variation called LeakyReLU (LReLU) has been shown to be more efficient.
 <br><br>
-&nbsp;&nbsp; The idea of this work is to show the improvements in a VAE network caused by the use of GELUs, replacing the LReLU used in the base model. GELUs were introduced in the work of Hendricks D. - Gaussian Error Linear Units (GELUs) (2020), corresponding to better results in computer vision tasks, natural language processing and automatic speech recognition compared to models with ReLUs or ELUs.
+&nbsp;&nbsp; The idea of this work is to show the improvements in a VAE network caused by the use of GELUs, replacing the LReLU used in the base model. GELUs were introduced in the work of Hendricks D. - Gaussian Error Linear Units (GELUs) (2016), corresponding to better results in computer vision tasks, natural language processing and automatic speech recognition compared to models with ReLUs or ELUs.
 </div>
 
 ## 2. Variational Autoencoder
@@ -46,3 +46,8 @@
 <div align="justify"> 
 &nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model.
 </div>
+
+## References
+  FOSTER, D. Generative Deep Learning: Teaching Machines to Paint, Write, Compose, and Play. 1ª Edição. O’Reilly Media: Michele Cronin, 2019.
+<br><br>
+  HENDRYCKS, Dan; GIMPEL, Kevin. Gaussian error linear units (GELUs). arXiv preprint arXiv:1606.08415, 2016.
