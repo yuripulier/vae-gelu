@@ -1,4 +1,5 @@
 # Variational Autoencoder - An Approach Using GELUs 
+
 ## 1. Introduction
 
 <div align="justify">
@@ -16,7 +17,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; 2. The decoder network decompresses the low-dimensional representation, reconstructing the input data.
 <br><br>
 
-&nbsp;&nbsp; Foster (2019) explains that the autoencoder network is trained to find weights that minimize the loss between the original input and the input reconstruction. The representation vector (representation vector) shown in Figure 13 demonstrates the compression of the input image in a smaller dimension called latent space, and it is from there that the decoder starts the reconstruction to obtain the input image. By choosing a point in the latent space represented to the right of the image, the decoder should be able to generate images within the distribution of the original data. However, we can notice that, depending on the point chosen in this two-dimensional latent space, the decoder will not be able to generate the images correctly. There is also a problem of lack of symmetry, which we notice by looking at the y axes of latent space and we see that the number of points in 𝑦 < 0 is much greater than in 𝑦 > 0 and there is a large concentration at the point (0, 0 ). Finally, through the coloring, we noticed that some digits are represented in very small and overlapping areas.
+&nbsp;&nbsp; Foster (2019) explains that the autoencoder network is trained to find weights that minimize the loss between the original input and the input reconstruction. The representation vector (representation vector) shown in Figure 13 demonstrates the compression of the input image in a smaller dimension called latent space, and it is from there that the decoder starts the reconstruction to obtain the input image. By choosing a point in the latent space represented to the right of the image, the decoder should be able to generate images within the distribution of the original data. However, we can notice that, depending on the point chosen in this two-dimensional latent space, the decoder will not be able to generate the images correctly. There is also a problem of lack of symmetry, which we notice by looking at the y axes of latent space and we see that the number of points in 𝑦 < 0 is much greater than in 𝑦 > 0 and there is a large concentration at the point (0, 0). Finally, through the coloring, we noticed that some digits are represented in very small and overlapping areas.
 <br><br>
 &nbsp;&nbsp; In addition to the aforementioned problems, the decoder must be able to generate different types of digits. According to Foster (2019), if the autoencoder is too free to choose how it will use the latent space to encode the images, there will be huge gaps between groups of similar points without these spaces between the numbers being able to generate images correctly. The Variational Autoencoder is a model that can be used to solve these problems demonstrated in an autoencoder to become a generative model. In an autoencoder, each image is mapped directly as a point in latent space, while in a VAE, each image is mapped as a multivariate normal distribution around a point.
 <br><br>
@@ -26,10 +27,22 @@
 ## 3. Gaussian Error Linear Units (GELUs)
 
 <div align="justify">
-
-&nbsp;&nbsp; 
-
-
+&nbsp;&nbsp; To better understand the complete formulation of the GELUs access the original paper at <a href="https://arxiv.org/pdf/1606.08415.pdf">Gaussian Error Linear Units (GELUs)</a>.
 </div>
 
-
+## 4. Experiments
+<div align="justify">
+&nbsp;&nbsp; We train a Variational Autoencoder on MNIST. We use a network with layers of width 28, 14, 7, 2, 7, 14, 28, in that order. We use the Adam optimizer, a batch size of 32 and loss is the root mean squared error. Our learning rate is 0.0005 and we trained for 200 epochs. We do not use dropout or any normalization layer like batch normalization or layer normalization. It might be interesting to test batch normalization in this model, as neuron inputs tend to follow a normal distribution, especially in this case. These tests using dropout and batch normalization will be done in future works.
+<br><br>
+&nbsp;&nbsp; In our experiment, we did tests with the base model using LReLU, a model replacing the LReLUs by GELUs in the encoder, a model doing the same replacement only in the decoder and a last model replacing both the encoder and the decoder (full). Left are reconstruction loss curves and right are KL loss curves. Light, thin curves correspond to test set log losses. In the last figure, the general loss of VAE.
+<br><br>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses.png", height= 300, width=900 /></div>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/model_loss.png", height= 300, width=450 /></div>
+<br>
+&nbsp;&nbsp; We can observe that replacing the activation layers only in the encoder or decoder already obtains a better performance than the base model. It is important to note that when using GELUs in the decoder, there was an improvement compared to using them in the encoder. Possibly due to the behavior of the decoder input which tends to be similar to a normal distribution due to the regularization of the encoder through the Kullback-Leibler Divergence, inserting the data representations as a normal distribution in the latent space. In the full-gelu model, in which we replaced all LReLUs with GELUs, we noticed a significant improvement in relation to the base model and also to the others.
+</div>
+  
+## 5. Conclusion
+<div align="justify"> 
+&nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model.
+</div>
