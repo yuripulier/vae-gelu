@@ -41,7 +41,7 @@
 <div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses.png", height= 300, width=900 /></div>
 <div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/model_loss.png", height= 300, width=450 /></div>
 <br>
-&nbsp;&nbsp; We can observe that replacing the activation layers only in the encoder or decoder already obtains a better performance than the base model. It is important to note that when using GELUs in the decoder, there was an improvement compared to using them in the encoder. Possibly due to the behavior of the decoder input which tends to be similar to a normal distribution due to the regularization of the encoder through the Kullback-Leibler Divergence, inserting the data representations as a normal distribution in the latent space. In the full-gelu model, in which we replaced all LReLUs with GELUs, we noticed a significant improvement in relation to the base model and also to the others.
+&nbsp;&nbsp; We can observe that replacing the activation layers only in the encoder or decoder already obtains a better performance than the base model. It is important to note that when using GELUs in the encoder, there was an improvement compared to using them in the decoder. Possibly due to the behavior of the decoder input which tends to be similar to a normal distribution due to the regularization of the encoder through the Kullback-Leibler Divergence, inserting the data representations as a normal distribution in the latent space. In the full-gelu model, in which we replaced all LReLUs with GELUs, we noticed a significant improvement in relation to the base model and also to the others.
 </div>
   
 ## 5. Conclusion
