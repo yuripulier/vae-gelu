@@ -6,6 +6,7 @@
 &nbsp;&nbsp; Even over the years, the Rectified Linear Unit (ReLU) activation function remains a competitive approach to creating Deep Learning models because it is faster and demonstrates better convergence compared to sigmoid. For generate image problems such as Generative Adversarial Networks (GANs) and Variational Autoencoders (VAEs), a variation called LeakyReLU (LReLU) has been shown to be more efficient.
 <br><br>
 &nbsp;&nbsp; The idea of this work is to show the improvements in a VAE network caused by the use of GELUs, replacing the LReLU used in the base model. GELUs were introduced in the work of Hendricks D. - Gaussian Error Linear Units (GELUs) (2016), corresponding to better results in computer vision tasks, natural language processing and automatic speech recognition compared to models with ReLUs or ELUs.
+<br><br>  
 &nbsp;&nbsp; The code is based on the approach taken by Foster at <a href="https://github.com/davidADSP/GDL_code">github.com/davidADSP/GDL_code</a>.
 </div>
 
