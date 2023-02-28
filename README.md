@@ -53,12 +53,17 @@
 
 #### 4.3 Use of Dropout
 <div align="justify">
-&nbsp;&nbsp;Soon...
+&nbsp;&nbsp; We trained the same network setup as the experiment shown in 4.1, adding only a dropout layer (rate = 0.25) after all the GELUs activation layers. We can see that there was a deterioration in the model in the training stage, but the result in validation stage is optimistic reducing overfitting problems obtaining lower loss values than in training.
+<br><br>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_dropout.png", height= 300, width=450 /></div>
+<br>
+&nbsp;&nbsp; Perhaps the dropout rate may have influenced a deterioration in relation to the Full-GELU model. Therefore, in the future we will test different dropout values that maintain the overfitting improvement and optimize the result of the Full-GELU model.
+
 </div>  
 
 ## 5. Conclusion
 <div align="justify"> 
-&nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model.
+&nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model. Perhaps the dropout rate may have influenced it, so new tests with varying dropout rates will be tested in the future.
 </div>
 
 ## References
