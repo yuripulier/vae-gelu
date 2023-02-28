@@ -33,6 +33,8 @@
 </div>
 
 ## 4. Experiments
+
+#### 4.1 Use of GELUs
 <div align="justify">
 &nbsp;&nbsp; We train a Variational Autoencoder on MNIST. We use a network with layers of width 28, 14, 7, 2, 7, 14, 28, in that order. We use the Adam optimizer, a batch size of 32 and loss is the root mean squared error. Our learning rate is 0.0005 and we trained for 200 epochs. We do not use dropout or any normalization layer like batch normalization or layer normalization. It might be interesting to test batch normalization in this model, as neuron inputs tend to follow a normal distribution, especially in this case. These tests using dropout and batch normalization will be done in future works.
 <br><br>
@@ -43,7 +45,17 @@
 <br>
 &nbsp;&nbsp; We can observe that replacing the activation layers only in the encoder or decoder already obtains a better performance than the base model. It is important to note that when using GELUs in the encoder, there was an improvement compared to using them in the decoder. Possibly due to the behavior of the decoder input which tends to be similar to a normal distribution due to the regularization of the encoder through the Kullback-Leibler Divergence, inserting the data representations as a normal distribution in the latent space. In the Full-GELU model, in which we replaced all LReLUs with GELUs, we noticed a significant improvement in relation to the base model and also to the others.
 </div>
-  
+
+#### 4.2 Use of Batch Normalization
+<div align="justify">
+&nbsp;&nbsp;Soon...
+</div>  
+
+#### 4.3 Use of Dropout
+<div align="justify">
+&nbsp;&nbsp;Soon...
+</div>  
+
 ## 5. Conclusion
 <div align="justify"> 
 &nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model.
