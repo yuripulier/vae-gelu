@@ -46,25 +46,7 @@
 &nbsp;&nbsp; We can observe that replacing the activation layers only in the encoder or decoder already obtains a better performance than the base model. It is important to note that when using GELUs in the encoder, there was an improvement compared to using them in the decoder. Possibly due to the behavior of the decoder input which tends to be similar to a normal distribution due to the regularization of the encoder through the Kullback-Leibler Divergence, inserting the data representations as a normal distribution in the latent space. In the Full-GELU model, in which we replaced all LReLUs with GELUs, we noticed a significant improvement in relation to the base model and also to the others.
 </div>
 
-### 4.2 Use of Batch Normalization
-
-#### 4.2.1 After GELUs
-<div align="justify">
-&nbsp;&nbsp; We trained the same network setup as the experiment shown in 4.1, adding a batch normalization layer before all the GELUs activation layers. We observed a good improvement in network training and a reasonable improvement in validation. Both converge.
-<br><br>
-<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_bn.png", height= 300, width=450 /></div>
-<br>
-</div>
-
-#### 4.2.2 Before GELUs
-<div align="justify">
-&nbsp;&nbsp; This time we used the batch normalization layers before the GELUs activation layers. We observed a better results then the experiment 4.2.1, evidenced after epoch 100. The training and validation curve lines converge.
-<br><br>
-<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_bn_before_gelu.png", height= 300, width=450 /></div>
-<br>
-</div>
-
-### 4.3 Use of Dropout
+### 4.2 Use of Dropout
 <div align="justify">
 &nbsp;&nbsp; We trained the same network setup as the experiment shown in 4.1, adding only a dropout layer (rate = 0.25) after all the GELUs activation layers. We can see that there was a deterioration in the model in the training stage, but the result in validation stage is optimistic reducing overfitting problems obtaining lower loss values than in training.
 <br><br>
@@ -72,6 +54,24 @@
 <br>
 &nbsp;&nbsp; Perhaps the dropout rate may have influenced a deterioration in relation to the Full-GELU model. Therefore, in the future we will test different dropout values that maintain the overfitting improvement and optimize the result of the Full-GELU model.
 </div>  
+  
+### 4.3 Use of Batch Normalization
+
+#### 4.3.1 After GELUs
+<div align="justify">
+&nbsp;&nbsp; We trained the same network setup as the experiment shown in 4.1, adding a batch normalization layer before all the GELUs activation layers. We observed a good improvement in network training and a reasonable improvement in validation. Both converge.
+<br><br>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_bn.png", height= 300, width=450 /></div>
+<br>
+</div>
+
+#### 4.3.2 Before GELUs
+<div align="justify">
+&nbsp;&nbsp; This time we used the batch normalization layers before the GELUs activation layers. We observed a better results then the experiment 4.2.1, evidenced after epoch 100. The training and validation curve lines converge.
+<br><br>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_bn_before_gelu.png", height= 300, width=450 /></div>
+<br>
+</div>
 
 ## 5. Conclusion
 <div align="justify"> 
