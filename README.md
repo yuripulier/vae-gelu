@@ -71,12 +71,11 @@
 <div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_dropout.png", height= 300, width=450 /></div>
 <br>
 &nbsp;&nbsp; Perhaps the dropout rate may have influenced a deterioration in relation to the Full-GELU model. Therefore, in the future we will test different dropout values that maintain the overfitting improvement and optimize the result of the Full-GELU model.
-
 </div>  
 
 ## 5. Conclusion
 <div align="justify"> 
-&nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model. Perhaps the dropout rate may have influenced it, so new tests with varying dropout rates will be tested in the future.
+&nbsp;&nbsp; The use of GELUs in a VAE has a superior performance compared to LReLU or ReLU used in most imaging models, therefore it becomes an excellent alternative for nonlinearity in this type of model. The best results were found for the model with batch normalization being used before the GELUs, both in the encoder and in the decoder. This is due to the normalization performed on the input data, creating batches that follow a normal distribution, favoring later GELUs.
 </div>
 
 ## References
