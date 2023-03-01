@@ -48,7 +48,10 @@
 
 #### 4.2 Use of Batch Normalization
 <div align="justify">
-&nbsp;&nbsp;Soon...
+&nbsp;&nbsp; We trained the same network setup as the experiment shown in 4.1, adding a batch normalization layer before all the GELUs activation layers. We observed a good improvement in network training and a reasonable improvement in validation. 
+<br><br>
+<div align="center"><img src="https://github.com/yuripulier/vae-gelu/blob/main/img/vae_losses_bn.png", height= 300, width=450 /></div>
+<br>
 </div>  
 
 #### 4.3 Use of Dropout
