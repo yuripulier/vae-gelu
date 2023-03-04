@@ -1,4 +1,6 @@
-# Variational Autoencoder - An Approach Using GELUs 
+# Variational Autoencoder - An Approach Using GELUs
+#### 📊📈 Check the notebook analysis on the other branch.
+<br>
 
 ## 1. Introduction
 
